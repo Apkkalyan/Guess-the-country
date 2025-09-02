@@ -1,0 +1,11 @@
+Project: Country Guessing Game using FlagsAPI
+
+Plan:
+1. index.html - UI: flag image, 4 choice buttons, score, next button.
+2. styles.css - basic responsive layout and feedback styling.
+3. script.js - fetch country list (restcountries), pick a target, show flag from flagsapi.com, generate choices, handle guesses and scoring, fallback local list.
+
+Notes:
+- Flags sourced from https://flagsapi.com/:country_code/:style/:size.png
+- Uses style "flat" and size 256 (e.g. https://flagsapi.com/US/flat/64.png)
+- Keep alpha-2 country codes uppercase.

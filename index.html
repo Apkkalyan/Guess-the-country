@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Guessing Game</title>
+</head>
+<body>
+	<div class="game">
+		<header>
+			<h1>Guess the Country</h1>
+			<div class="score">Score: <span id="score">0</span></div>
+		</header>
+
+		<main>
+			<!-- single-flag area -->
+			<div class="flags-row">
+				<div class="flag-card" style="justify-content:center">
+					<img id="flag" alt="Country flag" src="" />
+				</div>
+			</div>
+
+			<!-- instruction -->
+			<div id="instruction" class="instruction">Which country is this flag?</div>
+
+			<div id="choices" class="choices four-choices">
+				<!-- Buttons populated by JS -->
+			</div>
+
+			<div class="controls">
+				<button id="nextBtn" disabled>Next</button>
+			</div>
+
+			<div id="message" class="message" aria-live="polite"></div>
+		</main>
+	</div>
+
+	<script src="countries.js" defer></script>
+	<script src="index.js" defer></script>
+</body>
+</html>

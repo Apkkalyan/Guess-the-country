@@ -1,0 +1,150 @@
+:root{
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#4f46e5;
+  --success:#16a34a;
+  --danger:#dc2626;
+  --border:#e6e9f2;
+  --radius:10px;
+  --gap:12px;
+  font-family: Inter, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+*{box-sizing:border-box}
+
+html,body{
+  height:90%;
+  margin:0;
+  background:var(--bg);
+  color:#111827;
+}
+
+body{
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:28px;
+}
+
+/* Game card */
+.game{
+  width:100%;
+  max-width:720px;
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:0 8px 30px rgba(16,24,40,0.08);
+  padding:20px;
+}
+
+/* Header */
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+}
+header h1{
+  font-size:1.25rem;
+  margin:0;
+}
+.score{
+  font-weight:700;
+  color:var(--muted);
+}
+
+/* Flag area */
+.flags-row{
+  display:flex;
+  justify-content:center;
+  margin-bottom:14px;
+}
+.flag-card{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  background:#eef2ff;
+  border-radius:8px;
+  border:1px solid var(--border);
+}
+.flag-card img{
+  width:320px;
+  max-width:100%;
+  height:auto;
+  object-fit:contain;
+  border-radius:6px;
+  background:#fff;
+  display:block;
+}
+
+/* Instruction text */
+.instruction{
+  text-align:center;
+  font-weight:700;
+  margin:12px 0;
+}
+
+/* Choices grid (2x2) */
+.choices.four-choices{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:10px;
+  margin-bottom:12px;
+}
+.choice-btn{
+  padding:12px 10px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:var(--card);
+  cursor:pointer;
+  font-weight:600;
+  text-align:center;
+  transition:transform .08s ease, box-shadow .08s ease;
+  box-shadow:0 1px 0 rgba(0,0,0,0.02);
+}
+.choice-btn:hover:not(:disabled){ transform:translateY(-2px); box-shadow:0 6px 18px rgba(16,24,40,0.06); }
+.choice-btn:active:not(:disabled){ transform:translateY(0); }
+.choice-btn:disabled{ opacity:0.7; cursor:default; }
+
+/* Feedback */
+.choice-correct{
+  background: #dcfce7;
+  border-color: rgba(16,185,129,0.25);
+  color: #064e3b;
+}
+.choice-wrong{
+  background:#ffebe9;
+  border-color: rgba(220,38,38,0.12);
+  color:#7f1d1d;
+}
+
+/* Controls */
+.controls{ display:flex; justify-content:center; margin-top:6px; margin-bottom:6px; }
+#nextBtn{
+  padding:10px 16px;
+  border-radius:10px;
+  border:0;
+  background:var(--accent);
+  color:#fff;
+  cursor:pointer;
+  font-weight:700;
+}
+#nextBtn:disabled{ opacity:0.6; cursor:default; }
+
+/* Message */
+.message{
+  min-height:22px;
+  text-align:center;
+  font-weight:700;
+  color:var(--muted);
+  margin-top:6px;
+}
+
+/* Responsive tweaks */
+@media (max-width:480px){
+  .flag-card img{ width:90%; }
+  .choice-btn{ padding:10px; font-size:0.95rem; }
+}
