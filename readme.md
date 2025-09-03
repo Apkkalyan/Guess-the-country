@@ -72,7 +72,7 @@ Recommended: serve the folder using a static server (e.g. `npx http-server` or `
 ## For developers
 
 - Add countries.js before index.js in `index.html` to ensure data loader is available.
-- To change flag size/style: update the FlagsAPI URL in `index.js` (`flat/256.png`).
+- To change flag size/style: update the FlagsAPI URL in `index.js` (`flat/64.png`).
 - To limit the country pool (e.g., region-only): filter the array returned by `getCountries()`.
 
 Example: show only Europe
@@ -96,3 +96,4 @@ This repository is provided as-is for learning and prototyping. Add a license (M
 - If you add analytics or login features, update the README with privacy and data-handling notes.
 
 Enjoy building — GitHub Copilot
+
