@@ -9,6 +9,7 @@
 <body>
 	<div class="game">
 		<header>
+			<a class="home-link" href="home.html" aria-label="Home">Home</a>
 			<h1>Guess the Country</h1>
 			<div class="score">Score: <span id="score">0</span></div>
 		</header>
@@ -34,9 +35,22 @@
 
 			<div id="message" class="message" aria-live="polite"></div>
 		</main>
-	</div>
+</div>
 
-	<script src="countries.js" defer></script>
-	<script src="index.js" defer></script>
+<!-- popup modal shown on wrong answer -->
+<div id="wrongModal" class="modal hidden" aria-hidden="true" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalMsg">
+	<div class="modal-backdrop"></div>
+	<div class="modal-panel">
+		<h2 id="modalTitle">Incorrect</h2>
+		<p id="modalMsg">The correct answer is ...</p>
+		<div class="modal-actions">
+			<button id="modalContinue" class="choice-btn">Continue (+1)</button>
+			<button id="modalRestart" class="choice-btn choice-wrong">Restart</button>
+		</div>
+	</div>
+</div>
+
+<script src="countries.js" defer></script>
+<script src="index.js" defer></script>
 </body>
 </html>

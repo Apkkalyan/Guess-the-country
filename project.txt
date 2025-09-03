@@ -1,11 +1,29 @@
 Project: Country Guessing Game using FlagsAPI
 
-Plan:
-1. index.html - UI: flag image, 4 choice buttons, score, next button.
-2. styles.css - basic responsive layout and feedback styling.
-3. script.js - fetch country list (restcountries), pick a target, show flag from flagsapi.com, generate choices, handle guesses and scoring, fallback local list.
+Plan (updated):
+1. home.html - Homepage that shows player's last score (stored in localStorage) and a "Play the game" button.
+2. index.html - Main game UI: single flag, multiple-choice buttons (dynamic count), score display, modal for wrong answers.
+3. styles.css - App styling, modal, responsive layout, hide Next button in normal flow.
+4. countries.js - Centralized country loader: prefer Rest Countries API, then parse local ccopiedhtml.html, then fallback LOCAL_FALLBACK.
+5. index.js - Game logic:
+   - Single flag per round displayed from FlagsAPI.
+   - Dynamic options: 2 options (score < 10), 3 options (10 <= score < 20), 4 options (score >= 20).
+   - On correct guess: auto-advance to next round after a brief delay; score increments and saved to localStorage (gtc_last_score).
+   - On wrong guess: show a modal with two choices:
+       a) Continue (+1) — award 1 point and continue to next round.
+       b) Restart — reset score to 0 and start fresh.
+   - Attach image onerror fallback (inline SVG) for missing flags.
+
+Current files:
+- home.html        (new)    — homepage showing last score and Play button.
+- index.html       (updated)— game UI with modal and Home link.
+- styles.css       (created/updated) — layout, 2x2 choices, modal, hidden Next button.
+- index.js         (updated)— game logic, dynamic options, modal actions, localStorage handling.
+- countries.js     (updated)— country list loader and full LOCAL_FALLBACK array.
+- ccopiedhtml.html (provided) — backup country list used by countries.js.
 
 Notes:
 - Flags sourced from https://flagsapi.com/:country_code/:style/:size.png
-- Uses style "flat" and size 256 (e.g. https://flagsapi.com/US/flat/64.png)
-- Keep alpha-2 country codes uppercase.
+- Current flag size in code: flat/64.png (adjustable in index.js flagUrl).
+- Local storage key used: "gtc_last_score".
+- Recommend running via a static server to avoid local fetch restrictions (e.g., `npx http-server` or `python -m http.server`).

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Country Guessing Game — Home</title>
+	<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+	<main style="min-height:100vh;display:flex;align-items:center;justify-content:center;">
+		<div class="game homepage" style="max-width:520px;">
+			<h1>Country Guessing Game</h1>
+			<p class="last-score">Last score: <span id="lastScore">—</span></p>
+
+			<div style="display:flex;gap:12px;">
+				<a class="play-btn" href="index.html" role="button">Play the game</a>
+				<button id="clearScore" class="choice-btn">Clear</button>
+			</div>
+
+			<p style="margin-top:8px;color:var(--muted);font-size:0.95rem;">Your last score is stored locally in your browser.</p>
+		</div>
+	</main>
+
+	<script>
+		(function(){
+			const lastScoreEl = document.getElementById('lastScore');
+			const clearBtn = document.getElementById('clearScore');
+			function readLast(){
+				try{
+					const v = localStorage.getItem('gtc_last_score');
+					if(v === null) lastScoreEl.textContent = 'No score yet';
+					else lastScoreEl.textContent = String(v);
+				}catch(e){
+					lastScoreEl.textContent = 'Unavailable';
+				}
+			}
+			clearBtn.addEventListener('click', () => {
+				try{ localStorage.removeItem('gtc_last_score'); }catch(e){}
+				readLast();
+			});
+			readLast();
+		})();
+	</script>
+</body>
+</html>
